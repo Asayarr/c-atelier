@@ -758,3 +758,4 @@ gcc -g -fsanitize=address 文件.c -o 输出 -Wall -Wextra
 | `class`（引用类型，有方法）| `struct`（值类型，只有数据；方法用函数实现）|
 | `new Student()` | `Student s;`（栈）或 `malloc`（堆）|
 | `File.ReadAllText` | `fopen` + `fgets` + `fclose` |
+

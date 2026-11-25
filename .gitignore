@@ -1,6 +1,6 @@
 # ============================================
 #  C 学习仓库 .gitignore
-#  原则：只提交源码(.c/.h)，忽略"编译产出的东西"
+#  原则：只提交源码(.c/.h)和笔记，忽略"编译产出的东西"
 #  注意：.gitignore 不支持行尾注释，注释必须单独占一行
 # ============================================
 
@@ -15,18 +15,30 @@ a.out
 *.dSYM/
 *.gch
 
-# ---------- 本仓库里 gcc 生成的可执行文件 ----------
-# 习惯是 gcc exN.c -o exN：可执行文件和源文件同名、且没有扩展名。
-# 先忽略所有 "ex+数字" 开头的，再用 ! 把 .c 源文件捞回来。
-ex[0-9]*
-!ex[0-9]*.c
-# 其他手动命名的可执行文件：
-hello
-int_demo
-proj1/calc_app
+# ---------- 可执行文件（gcc ex5.c -o ex5 这种同名无扩展名的产物）----------
+# 习惯一：lessons 里 exN.c -> exN
+lessons/**/ex[0-9]*
+!lessons/**/ex[0-9]*.c
+# 习惯二：手动命名的可执行文件
+lessons/**/hello
+lessons/**/int_demo
+lessons/**/pp1
+lessons/**/pp2
+lessons/**/pa_1
+lessons/**/pa_2
+lessons/**/ptr_ex
+lessons/**/calc
+projects/**/calc_app
+projects/**/contacts
+
+# ---------- problem/ 里只保留 .c 源码 ----------
+# 刷题时直接 gcc 1045.c -o 1045，产物没有扩展名，用"排除法"统一忽略
+problem/*
+!problem/*.c
+!problem/*.md
 
 # ---------- 个人学习文档（不想提交到仓库）----------
-八股文.md
+notes/八股文.md
 
 # ---------- 编辑器 / 操作系统 ----------
 # 想保留 VS Code 配置就删掉下面这行
